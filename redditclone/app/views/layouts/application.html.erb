@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redditclone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <header>
+      <% if logged_in? %>
+        <h4>Welcome, <%= current_user.username%>!</h4>
+        <ul>
+          <li>
+            <form action="<%=session_url%>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Log Out">
+            </form>
+          </li>
+        </ul>
+      <% else %>
+        <ul>
+          <li><a href="<%=new_session_url%>">Sign In</a></li>
+          <li><a href="<%=new_user_url%>">Sign Up</a></li>
+        </ul>
+      <% end %>
+
+      <%=flash[:errors].join("<br>").html_safe if flash[:errors]%>
+    </header>
+    <%= yield %>
+  </body>
+</html>
