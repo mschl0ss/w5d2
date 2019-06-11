@@ -1,1 +1,25 @@
 /* PHASE 2: Notifications */
+
+.badge {
+  display: inline;
+  border-radius: 100%;
+  background-color: black;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.badge:hover {
+  background: red;
+}
+
+.header-list li:first-child {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  display: none;
+}
+.dropdown:hover {
+  display: block;
+}
