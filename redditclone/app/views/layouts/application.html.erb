@@ -27,8 +27,9 @@
           <li><a href="<%=new_user_url%>">Sign Up</a></li>
         </ul>
       <% end %>
-
+      <hr>
       <%=flash[:errors].join("<br>").html_safe if flash[:errors]%>
+      <hr>
     </header>
     <%= yield %>
   </body>

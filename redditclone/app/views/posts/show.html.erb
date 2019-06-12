@@ -1,0 +1,28 @@
+
+<h1 style="color: skyblue;">Title:" <%=@post.title%> " by <%=@post.author.username%></h1>
+
+<h6 style="text-decoration: overline;">URL: <%=@post.url%></h6>
+<p style="color: thistle; border: dashed 5px orange; padding: 20px; width: 50%; text-transform: lowercase;"><%=@post.content%></p>
+
+<a href="<%=new_post_comment_url(@post)%>" style="font-weight: bold; text-decoration:none;">&gt;New Comment&lt;</a>
+
+<ol>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <a href="<%=comment_url(comment)%>">
+        <%= comment.content if comment.parent_comment.nil? %>
+      </a>
+    </li>
+  <% end %>
+</ol>
+
+<h1 style="color: green;">🍞 🍞 🍞Related Subs🍞 🍞 🍞</h1>
+<ul>
+  <% @post.subs.each do |sub|%>
+    <li>
+      🍴<a href="<%=sub_url(sub)%>">
+        <%= sub.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

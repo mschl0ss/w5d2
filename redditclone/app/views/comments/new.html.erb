@@ -1,0 +1,12 @@
+<h1>New Comment!</h1>
+
+<form action="<%=comments_url%>" method="POST">
+  <input type="hidden" name="comment[post_id]" value="<%=@post.id%>">
+
+  <label>Say what you gotta say bro
+    <textarea name="comment[content]">it better be good</textarea>
+  </label>
+
+  <input type="submit" value="Holy shit create comment">
+
+</form>

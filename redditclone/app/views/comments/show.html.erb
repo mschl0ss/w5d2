@@ -1,0 +1,23 @@
+
+<p><%= @comment.content%><p>
+
+<form action="<%=comments_url%>" method="post">
+
+  <input type="hidden" name="comment[parent_comment_id]" value="<%=@comment.id%>">
+  <input type="hidden" name="post_id" value="<%=@comment.post_id%>">
+  <label>reply
+    <br>
+    <textarea name="comment[content]">it better be good</textarea>
+  </label>
+  <br>
+  <input type="submit" value="Holy shit create comment">
+
+</form>
+
+<ul>
+  <% @comment.child_comments.each do |child| %>
+
+    <li><a href="<%=comment_url(child)%>"><%=child.content%></a></li>
+
+  <% end %>
+</ul>
